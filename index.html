@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Repair Game - Unscramble Bible Verses</title>
+    <meta name="description" content="Test your Bible knowledge with the Bible Repair Game! Unscramble Bible verses by placing words in the correct order. Play in your browser or download the mobile app.">
+    <link rel="icon" href="brg-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="brg-logo.svg" alt="Bible Repair Game Logo" width="64" height="48">
+                </div>
+                <h1 class="hero-title">Bible Repair Game</h1>
+                <p class="hero-subtitle">Test Your Bible Knowledge</p>
+                <div class="hero-description">
+                    <p>🔧 <em>Repair</em> scrambled Bible verses by placing words in the correct order.</p>
+                    <p>Challenge yourself with verses from across the scriptures!</p>
+                </div>
+                
+                <!-- Interactive Hero Demo -->
+                <div class="hero-interactive-demo">
+                    <div class="demo-label">Try it right here:</div>
+                    <div class="verse-demo-container">
+                        <div class="verse-placement-area">
+                            <span class="word-slot filled">For</span>
+                            <span class="word-slot filled">God</span>
+                            <span class="word-slot empty highlight" onclick="placeWord('so', this)" data-word="so">___</span>
+                            <span class="word-slot empty" onclick="placeWord('loved', this)" data-word="loved">___</span>
+                            <span class="word-slot filled">the</span>
+                            <span class="word-slot empty" onclick="placeWord('world', this)" data-word="world">___</span>
+                        </div>
+                        <div class="available-words">
+                            <div class="demo-instruction">Click to place: <span class="current-word">so</span></div>
+                            <div class="word-bank">
+                                <span class="available-word active" onclick="selectWord(this)" data-word="so">so</span>
+                                <span class="available-word" onclick="selectWord(this)" data-word="loved">loved</span>
+                                <span class="available-word" onclick="selectWord(this)" data-word="world">world</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-hint">✨ Click a word, then click where it goes!</div>
+                </div>
+                
+                <!-- Download Buttons -->
+                <div class="download-section">
+                    <h2>Download the App</h2>
+                    <p>Get the full mobile experience with offline play and native performance</p>
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/search?q=bible%20repair%20game&c=apps" class="download-btn android-btn" target="_blank">
+                            <div class="btn-content">
+                                <span class="btn-icon">📱</span>
+                                <div class="btn-text">
+                                    <small>Get it on</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://apps.apple.com/search?term=bible%20repair%20game" class="download-btn ios-btn" target="_blank">
+                            <div class="btn-content">
+                                <span class="btn-icon">📱</span>
+                                <div class="btn-text">
+                                    <small>Coming Soon to</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="download-note">🔍 Search for "Bible Repair Game" or "Bible Verse Unscramble" in your app store</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Game Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>🛠️ Game Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Sacred Scriptures</h3>
+                    <p>Piece together verses from across the Bible, including beloved passages from John, Psalms, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Satisfying Mechanics</h3>
+                    <p>Tap to place words with smooth animations, visual feedback, and that <em>"click"</em> feeling when you get it right.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Peek Feature</h3>
+                    <p>Stuck? Use the sneak peek to glimpse the complete verse - but try not to rely on it too much!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Cross-Platform</h3>
+                    <p>Built with Capacitor magic for buttery-smooth performance on Android, iOS, and web browsers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Play Section -->
+    <section class="how-to-play">
+        <div class="container">
+            <h2>How to Play</h2>
+            <p class="how-to-subtitle">Learn the basics in 30 seconds - then jump in and play!</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Read the Bible Verse Reference</h3>
+                        <p>Each game shows you the book, chapter, and verse reference at the top.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Place Words in Order</h3>
+                        <p>Tap the empty slots to place the highlighted word in the correct position.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Complete the Verse</h3>
+                        <p>Continue until all words are placed correctly to complete the Bible verse.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="play-after-instructions">
+                <p><strong>Ready to try it?</strong></p>
+                <button class="play-browser-btn" onclick="showGame()">
+                    🎮 Start Playing Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Preview Section -->
+    <section class="gameplay-preview">
+        <div class="container">
+            <h2>Gameplay Preview</h2>
+            <div class="preview-content">
+                <div class="preview-text">
+                    <h3>🎮 Interactive Bible Study</h3>
+                    <ul class="feature-list">
+                        <li>✨ Unscramble words from famous Bible verses</li>
+                        <li>📊 Track your progress with visual feedback</li>
+                        <li>👁️ Use hints with the "Sneak Peek" feature</li>
+                        <li>⏭️ Skip or reset verses as needed</li>
+                        <li>📱 Optimized for mobile and desktop</li>
+                        <li>🔄 Multiple verses to challenge yourself</li>
+                    </ul>
+                    <p>Perfect for Bible study groups, personal devotion, or just testing your scripture knowledge!</p>
+                </div>
+                <div class="preview-demo">
+                    <div class="demo-screen">
+                        <div class="demo-header">John 3:16</div>
+                        <div class="demo-slots">
+                            <span class="demo-slot filled">For</span>
+                            <span class="demo-slot empty">___</span>
+                            <span class="demo-slot empty">___</span>
+                            <span class="demo-slot filled">loved</span>
+                            <span class="demo-slot empty">___</span>
+                        </div>
+                        <div class="demo-word">God</div>
+                        <div class="demo-instruction">Tap the correct spot for: <strong>God</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Verses Section -->
+    <section class="sample-verses">
+        <div class="container">
+            <h2>Featured Bible Verses</h2>
+            <p>Test your knowledge with verses from across the scriptures</p>
+            <div class="verses-grid">
+                <div class="verse-card">
+                    <h3>John 3:16</h3>
+                    <p>"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."</p>
+                </div>
+                <div class="verse-card">
+                    <h3>Psalm 23:1</h3>
+                    <p>"The LORD is my shepherd; I shall not want."</p>
+                </div>
+                <div class="verse-card">
+                    <h3>Philippians 4:13</h3>
+                    <p>"I can do all things through Christ who strengthens me."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Demo Section -->
+    <section class="ready-to-try" id="full-demo">
+        <div class="container">
+            <!-- Hidden Demo Section -->
+            <div class="demo-section" id="demo-section">
+                <!-- Play in Browser Button -->
+                <div class="browser-play-section">
+                    <h2>🎮 Full Game Experience</h2>
+                    <p>Ready for the complete Bible Repair Game with all features and verses?</p>
+                    <button class="play-browser-btn" onclick="showGame()">
+                        🚀 Launch Full Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browser Game Section -->
+    <section class="browser-game" id="browser-game" style="display: none;">
+        <div class="container">
+            <h2>Bible Repair Game - Demo</h2>
+            <div class="game-container">
+                <div id="game-area">
+                    <!-- Game will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-info">
+        <div class="container">
+            <h2>Built with Modern Technology</h2>
+            <p>The Bible Repair Game is built using:</p>
+            <div class="tech-stack">
+                <span class="tech-badge">SvelteKit</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Capacitor</span>
+                <span class="tech-badge">Vite</span>
+            </div>
+            <p>This ensures fast performance and native mobile app capabilities across platforms.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="brg-logo.svg" alt="Bible Repair Game Logo" width="24" height="18">
+                    <span>Bible Repair Game</span>
+                </div>
+                <div class="footer-links">
+                    <p>&copy; 2024 Bible Repair Game. Built with ❤️ for Bible study.</p>
+                    <p>
+                        Created by <a href="https://nathaniel-young.com" target="_blank">Nathaniel Young</a> | 
+                        <a href="https://sagaciasoft.com" target="_blank">Sagaciasoft</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
