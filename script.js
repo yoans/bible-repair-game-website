@@ -191,16 +191,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadBtns = document.querySelectorAll('.download-btn');
     downloadBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            // For now, prevent default since we don't have actual app store links
-            e.preventDefault();
-            
-            // Show a message that apps are coming soon
-            const originalText = this.innerHTML;
-            this.innerHTML = '<div class="btn-content"><span class="btn-icon">⏳</span><div class="btn-text"><small>Coming</small><strong>Soon</strong></div></div>';
-            
-            setTimeout(() => {
-                this.innerHTML = originalText;
-            }, 2000);
+            // Allow Android button to work normally, prevent iOS button
+            if (btn.classList.contains('ios-btn')) {
+                e.preventDefault();
+                // Show a message that iOS app is coming soon
+                const originalText = this.innerHTML;
+                this.innerHTML = '<div class="btn-content"><span class="btn-icon">⏳</span><div class="btn-text"><small>Coming</small><strong>Soon</strong></div></div>';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            }
+            // Android button will work normally and go to Play Store
         });
     });
     
