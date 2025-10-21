@@ -187,22 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add loading animation for download buttons
+    // Optional: hook for download buttons (currently both navigate normally)
     const downloadBtns = document.querySelectorAll('.download-btn');
     downloadBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Allow Android button to work normally, prevent iOS button
-            if (btn.classList.contains('ios-btn')) {
-                e.preventDefault();
-                // Show a message that iOS app is coming soon
-                const originalText = this.innerHTML;
-                this.innerHTML = '<div class="btn-content"><span class="btn-icon">⏳</span><div class="btn-text"><small>Coming</small><strong>Soon</strong></div></div>';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                }, 2000);
-            }
-            // Android button will work normally and go to Play Store
+        btn.addEventListener('click', function() {
+            // Intentionally allow default navigation for both iOS and Android
         });
     });
     

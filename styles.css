@@ -281,18 +281,18 @@ body::before {
 
 .download-section h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: white;
     margin-bottom: 1rem;
 }
 
 .download-section p {
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
 }
 
 .download-note {
     font-size: 0.9rem;
-    color: #7f8c8d;
+    color: rgba(255, 255, 255, 0.8);
     margin-top: 1rem;
     font-style: italic;
 }
@@ -306,84 +306,21 @@ body::before {
 
 .download-btn {
     text-decoration: none;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-    min-width: 200px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    display: inline-block;
 }
 
-.download-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.6s;
-}
-
-.download-btn:hover::before {
-    left: 100%;
-}
-
-.download-btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
-
-.android-btn {
-    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
-}
-
-.android-btn:hover {
-    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4);
-}
-
-.ios-btn {
-    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-    box-shadow: 0 8px 25px rgba(149, 165, 166, 0.3);
-    opacity: 0.8;
-}
-
-.ios-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(149, 165, 166, 0.4);
-}
-
-.btn-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-icon {
-    font-size: 2rem;
-}
-
-.btn-text {
-    text-align: left;
-}
-
-.btn-text small {
+/* Official store badge variant */
+.store-badge img {
     display: block;
-    font-size: 0.8rem;
-    opacity: 0.8;
+    height: 90px;
 }
 
-.btn-text strong {
-    display: block;
-    font-size: 1.1rem;
+.store-badge.ios-btn img {
+    padding: 15px;
+}
+
+.store-badge:hover img {
+    filter: brightness(0.95);
 }
 
 /* Browser Play Section */
@@ -1210,9 +1147,8 @@ body::before {
         align-items: center;
     }
     
-    .download-btn {
-        width: 100%;
-        max-width: 300px;
+    .store-badge img {
+        height: 56px;
     }
     
     .features-grid {
